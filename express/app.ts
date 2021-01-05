@@ -3,7 +3,7 @@ import cors from 'cors';
 import express from 'express';
 import { createServer } from 'http';
 
-import { activeql } from './activeql-app';
+import { activeql } from './activeql/activeql-app';
 
 (async () => {
   const app = express();
