@@ -16,11 +16,6 @@
       "dom",
       "esnext.asynciterable"
     ],
-    "paths": {
-      "activeql-admin-ui": [
-        "projects/activeql-admin-ui/src/public-api"
-      ]
-    },
     "allowSyntheticDefaultImports": true
   },
   "angularCompilerOptions": {
