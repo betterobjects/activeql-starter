@@ -49,110 +49,53 @@ npm install
 In the folder `./express/activeql/domain-configuration` create a YAML file, e.g. `car.yml` with the following content: 
 
 ```yaml
-enum:
-  CarBrand:
-    - Mercedes
-    - Porsche
-    - Audi
-    - BMW
-
 entity:
   Car:
     attributes:
       licence: Key
       brand: String!
-      color: String
       mileage: Int
-    seeds:
-      50:
-        licence:
-          faker: vehicle.vin
-        brand:
-          sample: CarBrand
-        color:
-          sample:
-            - red
-            - green
-            - white
-            - black
-        mileage:
-          random:
-            min: 10000
-            max: 120000
 ```
 
-As you might noticed we defined some seed data in the entity configuration. When you run the following command from the command line the datastore (per default a local file based NeDB database) will be populated with 50 car items using fake or random data.
-
-```
-npm run seed
-```
-
-The following command
+You start a Graphql API endpoint at `http://localhost:3000/graphql` with this command
 
 ```
 cd express
 npm run start:dev
 ```
 
-will start a GraphqlAPI endpoint at `http://localhost:3000/graphql` 
-
 If you point your browser to this address you will find full fledged GraphQL API whith many queries and mutations you can interact with.
 
-To see the just seeded car items you could call the following GraphQL query: 
+To create a car you could call the mutation: 
 
 ```graphql
-query {
-  cars( 
-    filter: { brand: { is: "Mercedes" } }
-    sort: mileage_DESC
-    paging: { page: 0 size: 3 }
-  ){
-    id
-    licence
-    brand
-    color
-    mileage
-    createdAt
+mutation{
+  createCar( car: { licence: "HH AQ 2021" brand: "Mercedes", mileage: 10000 } ){
+    car{ id licence brand mileage }
   }
 }
 ```
 
-which would give the 3 Merceds cars with the highest mileage:
+with the answer from your GraphQL API
 
 ```json
 {
   "data": {
-    "cars": [
-      {
-        "id": "DGRDYT8Fh80WZcF8",
-        "licence": "X5OG8PM3WGFE67434",
+    "createCar": {
+      "car": {
+        "id": "GjgoJZ9RNHPQ1Pij",
+        "licence": "HH AQ 2021",
         "brand": "Mercedes",
-        "color": "red",
-        "mileage": 90308,
-        "createdAt": "2021-01-05T21:53:09.382Z"
-      },
-      {
-        "id": "hDP1CJzydiaqAk88",
-        "licence": "MXWUINMZGIWS69138",
-        "brand": "Mercedes",
-        "color": "green",
-        "mileage": 90066,
-        "createdAt": "2021-01-05T21:53:09.382Z"
-      },
-      {
-        "id": "G2zQBcVAzqA6owb8",
-        "licence": "QTMWLP9TQ7QN76272",
-        "brand": "Mercedes",
-        "color": "green",
-        "mileage": 52120,
-        "createdAt": "2021-01-05T21:53:09.381Z"
+        "mileage": 10000
       }
-    ]
+    }
   }
 }
 ```
 
-If you go to `http://localhost:4200/` you will access the ActiveQL Admin application that gives a nice UI basic CRUD operations on your entites - in our example, just the 
+If you go to `http://localhost:4200/` you will access the ActiveQL Admin application that gives a nice UI basic CRUD operations on your entites - in our example, just the "Cars" menu item.
+
+
 <br>
 
 ### Repository structure
