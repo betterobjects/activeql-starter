@@ -15,7 +15,7 @@ entity:
     seeds:
       50:
         licence:
-          faker: vehicle.vin
+          rfs: alphaUpper(1,3).append('-').alphaUpper(1,2).append(' ').numeric(3,4)
         brand:
           sample: CarBrand
         color:
