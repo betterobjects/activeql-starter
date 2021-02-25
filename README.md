@@ -57,7 +57,7 @@ entity:
       mileage: Int
 ```
 
-You start a Graphql API endpoint at `http://localhost:3000/graphql` with this command
+You start a Graphql API endpoint at `http://localhost:4000/graphql` with this command
 
 ```
 cd express
