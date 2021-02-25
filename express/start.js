@@ -10,6 +10,6 @@ console.log( `
     ActiveQL development environment
     It is safe to ignore the messages and warning.
     \n\
-    GraphQL API runs at http://localhost:3000/graphql
+    GraphQL API runs at http://localhost:4000/graphql
     Admin UI runs at http://localhost:4200
     \n\n`);
