@@ -11,9 +11,9 @@
     "client": "cd ../angular; ng serve",
     "server:prod": "./node_modules/.bin/ts-node -P ./tsconfig.json -- ./app.ts",
     "seed": "./node_modules/.bin/ts-node -P ./tsconfig.json -- ./activeql/bin/seed.ts",
-    "generate": "./node_modules/.bin/ts-node -P ./tsconfig.json -- ./activeql/bin/generate.ts",
-    "uml": "./node_modules/.bin/ts-node -P ./tsconfig.json -- ./activeql/bin/generate.ts uml",
-    "types": "./node_modules/.bin/ts-node -P ./tsconfig.json -- ./activeql/bin/generate.ts types",
+    "types": "./node_modules/.bin/ts-node -P ./tsconfig.json -- ./activeql/bin/generate.types.ts",
+    "uml": "./node_modules/.bin/ts-node -P ./tsconfig.json -- ./activeql/bin/generate.uml.ts",
+    "generate": "npm run types; npm run uml",
     "test": "jest --watch --detectOpenHandles"
   },
   "dependencies": {
