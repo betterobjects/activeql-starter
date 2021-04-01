@@ -25,6 +25,7 @@
     "dotenv": "^8.2.0",
     "es6-template-strings": "^2.0.1",
     "express-jwt": "^6.0.0",
+    "graphql-subscriptions-client": "^0.16.0",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15",
     "yaml": "^1.7.2"
